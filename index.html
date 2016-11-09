@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Crystals Collector Game</title>
+</head>
+<body>
+
+<!-- Psuedo Code for the game!
+
+- First, lay out all of the HTML. 
+	- This includes Background, Title, First Paragraph, Random Number Goal Container, Wins & Losses Container, 4 icons for jewels including Ruby, Saphhire, Topaz, and Emerald, & Total Score block
+
+- Once that is completed, you will work on your JavaScript first. We will do Javascript first, then change the ones that can to JQuery.  -->
+
+
+	<!-- Title for the page. Nothing Dynamic. -->
+	<header>Crystals Collector!</header>
+
+
+	<!-- Paragraphs explaining the objective of the game. Nothing dynamic.  -->
+	<section>
+		<p>You will be given a random number at the start of the game.</p>
+		<p>There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.</p>
+		<p>You win the game by matching your total score to random number, you lose the game if your total score goes above the random number.</p>
+		<p>The value of each crystal is hidden from you until you click on it.</p>
+		<p>The value of each crystal is hidden from you until you click on it.</p>
+		<p>Each time when the game starts, the game will change the values of each crystal.</p>
+	</section>
+
+
+	<!-- Here, the random goal number for the user to try and get to will be calculated and displayed upon page load. This will be a dynamic section. -->
+	<div class="randomGoalNumber">
+	</div>
+	
+	<!-- Here the accumulated wins and losses will be shown for the user at all times to let them know how they have done in past games. Will be dynamic. -->
+	<div class="winsLosses">
+	</div>
+
+	<!-- Below are all of the images for the jewels that will be used to click on that will hold random values. These will be dynamic as well.  -->
+	<img src="assets/images/emerald.jpg" class="button">
+	<img src="assets/images/ruby.jpg" class="button">
+	<img src="assets/images/sapphire.png" class="button">
+	<img src="assets/images/topaz.jpg" class="button">
+
+	<!-- This container will have a small amount of paragraph text that tells the user that below this section, the total amount of points thus far in the game are below. Not dynamic. -->
+	<div class="yourTotalScore">
+		<p>Your total score is:</p>
+	</div>
+
+	<!-- This box will have the total accumulated score that will display in the box. This will be dynamic. -->
+	<div class="totalScore">
+		
+	</div>
+
+</body>
+</html>
