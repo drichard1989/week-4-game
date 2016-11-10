@@ -10,8 +10,62 @@
 // 	- Then, we will create a function that will run when an image is clicked.
 // 		- When any of the 4 buttons are clicked, they are added together in the yourTotalScore area. 
 // 		- The value will be added in the display for yourTotalScore.
-// 			- If yourTotalScore is larger than the randomGoalNumber, you lose, game resets, and adds a loss.  
-// 			- If yourTotalScore is = to the randomGoalNumber, you win, and reset function runs after adding a win.
+// 			- If accumulatedScore is larger than the randomGoalNumber, you lose, game resets, and adds a loss.  
+// 			- If accumulatedScore is = to the randomGoalNumber, you win, and reset function runs after adding a win.
 
 // - Then, write your HTML inline? code to plug in the variables on the DOM, and hopefully the thing starts to work!
+
+$(document).ready(function(){
+
+// Variables needed
+var randomGoalNumber = Math.floor(Math.random()*101) + 19;
+var wins = 0;
+var losses = 0;
+var accumulatedScore = 0;
+var rubyNumber = Math.floor(Math.random()*12) + 1;
+var emeraldNumber = Math.floor(Math.random()*12) + 1;
+var sapphireNumber = Math.floor(Math.random()*12) + 1;
+var topazNumber = Math.floor(Math.random()*12) + 1;
+
+$("#rubyButton").val(rubyNumber);
+$("#emeraldButton").val(emeraldNumber);
+$("#sapphireButton").val(sapphireNumber);
+$("#topazButton").val(topazNumber);
+
+console.log(randomGoalNumber);
+
+
+
+$(document).on("click", "button", function()
+
+// Check to see if any of the button gems have been clicked
+	{
+
+		
+		accumulatedScore +=parseInt($(this).val());
+
+		console.log(accumulatedScore); 
+
+		if (accumulatedScore == randomGoalNumber) {
+			wins++;
+			alert("You finally won something!");
+			console.log(wins);
+		} if (accumulatedScore > randomGoalNumber) {
+			losses ++ ;
+			alert("Oh no! You suck again!");
+			console.log(losses);
+		}
+
+
+		;
+
+
+		}
+
+
+	)
+});
+
+
+
 
