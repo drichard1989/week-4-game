@@ -27,42 +27,70 @@ var emeraldNumber = Math.floor(Math.random()*12) + 1;
 var sapphireNumber = Math.floor(Math.random()*12) + 1;
 var topazNumber = Math.floor(Math.random()*12) + 1;
 
+// This applies the values created above to the value of the button itself.
 $("#rubyButton").val(rubyNumber);
 $("#emeraldButton").val(emeraldNumber);
 $("#sapphireButton").val(sapphireNumber);
 $("#topazButton").val(topazNumber);
 
-console.log(randomGoalNumber);
+// This consoles the goal number for me to see
+console.log("Your goal: " + randomGoalNumber);
 
+// This function resets the game on demand.
 
+function reset() {
+	accumulatedScore = 0;
+	var rubyNumber = Math.floor(Math.random()*12) + 1;
+	var emeraldNumber = Math.floor(Math.random()*12) + 1;
+	var sapphireNumber = Math.floor(Math.random()*12) + 1;
+	var topazNumber = Math.floor(Math.random()*12) + 1;
+	randomGoalNumber = Math.floor(Math.random()*101) + 19;
+	// This re-applies the values created above to the value of the button itself.
+	$("#rubyButton").val(rubyNumber);
+	$("#emeraldButton").val(emeraldNumber);
+	$("#sapphireButton").val(sapphireNumber);
+	$("#topazButton").val(topazNumber);
+	console.log("New objective: " + randomGoalNumber);
 
+};
+
+// This function is what we call an event listener, and runs the function when one of the buttons is clicked. 
 $(document).on("click", "button", function()
-
-// Check to see if any of the button gems have been clicked
 	{
 
-		
+		// This takes the accumulatedScore variable, and makes it = to the values that are clicked, 
+		// but only after they are converted to numbers. They were strings, and were concatenating.
 		accumulatedScore +=parseInt($(this).val());
 
-		console.log(accumulatedScore); 
+		// This consoles the accumulatedScore to see what it is returning.
+		console.log("Your score: " + accumulatedScore); 
 
+		// This compares the accumulatedScore to the randomGoalNumber, and if the user makes it equal to , 
+		// and is successful, then it increases the wins by 1, displays a winning alert, and console.logs 
+		// the wins to make sure they are increasing.
 		if (accumulatedScore == randomGoalNumber) {
 			wins++;
 			alert("You finally won something!");
-			console.log(wins);
-		} if (accumulatedScore > randomGoalNumber) {
+			console.log("Win count :" + wins);
+			reset();
+			
+		} 
+		// This compares the accumulatedScore to the randomGoalNumber, and if the user makes the accumulatedScore 
+		// larger than the randomGoalNumber, they add a loss, an alert shows up on the page making them feel like
+		// a looser,the game resets, and it consoles the loss count.
+		if (accumulatedScore > randomGoalNumber) {
 			losses ++ ;
 			alert("Oh no! You suck again!");
-			console.log(losses);
-		}
+			console.log("Loss count: " + losses);
+			reset();
+		
+		};
 
 
-		;
+		
 
 
-		}
-
-
+	}
 	)
 });
 
