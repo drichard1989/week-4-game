@@ -2,21 +2,25 @@
 <html>
 <head>
 	<title>Crystals Collector Game</title>
+	<!-- Here we linked the Meyerweb Reset CSS file that we saved in the local repository. -->
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<!-- Here we linked the style sheet that we created and saved in the local repository. -->
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<!-- Here we linked the jQuery library that we linked from the website. -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<!-- Here we linked the JavaScript file that we edited and saved in the local repository. -->
 	<script type="text/javascript" src="assets/javascript/game.js"></script>
 
 
 </head>
 <body>
 
-<!-- Psuedo Code for the game!
+	<!-- Psuedo Code for the game!
 
-- First, lay out all of the HTML. 
-	- This includes Background, Title, First Paragraph, Random Number Goal Container, Wins & Losses Container, 4 icons for jewels including Ruby, Saphhire, Topaz, and Emerald, & Total Score block
+	- First, lay out all of the HTML. 
+		- This includes Background, Title, First Paragraph, Random Number Goal Container, Wins & Losses Container, 4 icons for jewels including Ruby, Saphhire, Topaz, and Emerald, & Total Score block
 
-- Once that is completed, you will work on your JavaScript first. We will do Javascript first, then change the ones that can to JQuery.  -->
+	- Once that is completed, you will work on your JavaScript first. We will do Javascript first, then change the ones that can to JQuery.  -->
 
 
 	<!-- Title for the page. Nothing Dynamic. -->
@@ -37,14 +41,19 @@
 	<!-- This container will be a row container for the two containers following it.  -->
 	<div class="container">
 		<!-- Here, the random goal number for the user to try and get to will be calculated and displayed upon page load. This will be a dynamic section. -->
-		<div class="randomGoalNumber">
+		<div id="randomGoalNumber">
 		</div>
 		
-		<!-- Here the accumulated wins and losses will be shown for the user at all times to let them know how they have done in past games. Will be dynamic. -->
-		<div class="winsLosses">
+		<!-- Here the accumulated wins will be shown for the user at all times to let them know how they have done in past games. Will be dynamic. -->
+		<div id="wins">
+		</div>
+		<!-- Here the accumulated losses will be shown for the user at all times to let them know how they have done in past games. Will be dynamic. -->
+		<div id="losses">
+			
 		</div>
 
 	</div>
+
 	<!-- Below are all of the images for the jewels that will be used to click on that will hold random values. These will be dynamic as well.  -->
 	<button type="button" id="emeraldButton" ><img src="assets/images/emerald.jpg"></button>
 
@@ -56,13 +65,10 @@
 
 
 
-	<!-- This container will have a small amount of paragraph text that tells the user that below this section, the total amount of points thus far in the game are below. Not dynamic. -->
-	<div class="yourTotalScore">
-		<p>Your total score is:</p>
-	</div>
+
 
 	<!-- This box will have the total accumulated score that will display in the box. This will be dynamic. -->
-	<div class="totalScore">
+	<div id="accumulatedScore">
 		
 	</div>
 

@@ -7,13 +7,13 @@
 // 			- Then, the computer will also randomly calclulate random numbers for each of the 4 images. 
 // 				- rubyNumber, emeraldNumber, sapphireNumber, topazNumber.
 // 					- These numbers must be between 1 and 12, and not be visible.
-// 	- Then, we will create a function that will run when an image is clicked.
-// 		- When any of the 4 buttons are clicked, they are added together in the yourTotalScore area. 
-// 		- The value will be added in the display for yourTotalScore.
+// 	- Then, we will create a function that will run when a button is clicked.
+// 		- When any of the 4 buttons are clicked, they are added together in the accumulatedScore area. 
+// 		- The value will be added in the display for accumulatedScore.
 // 			- If accumulatedScore is larger than the randomGoalNumber, you lose, game resets, and adds a loss.  
 // 			- If accumulatedScore is = to the randomGoalNumber, you win, and reset function runs after adding a win.
 
-// - Then, write your HTML inline? code to plug in the variables on the DOM, and hopefully the thing starts to work!
+// - Then, write your HTML plug in code to plug in the variables on the DOM, and hopefully the thing starts to work!
 
 $(document).ready(function(){
 
@@ -26,6 +26,10 @@ var rubyNumber = Math.floor(Math.random()*12) + 1;
 var emeraldNumber = Math.floor(Math.random()*12) + 1;
 var sapphireNumber = Math.floor(Math.random()*12) + 1;
 var topazNumber = Math.floor(Math.random()*12) + 1;
+var randomGoalNumberString = "Goal: " + randomGoalNumber;
+var lossString = "Losses: " + losses;
+var winString = "Wins: " + wins;
+var accumulatedScoreString = "Your Total: " + accumulatedScore;
 
 // This applies the values created above to the value of the button itself.
 $("#rubyButton").val(rubyNumber);
@@ -37,7 +41,6 @@ $("#topazButton").val(topazNumber);
 console.log("Your goal: " + randomGoalNumber);
 
 // This function resets the game on demand.
-
 function reset() {
 	accumulatedScore = 0;
 	var rubyNumber = Math.floor(Math.random()*12) + 1;
@@ -45,7 +48,7 @@ function reset() {
 	var sapphireNumber = Math.floor(Math.random()*12) + 1;
 	var topazNumber = Math.floor(Math.random()*12) + 1;
 	randomGoalNumber = Math.floor(Math.random()*101) + 19;
-	// This re-applies the values created above to the value of the button itself.
+	// This re-applies the values created above to the value of the button itself when the game is reset.
 	$("#rubyButton").val(rubyNumber);
 	$("#emeraldButton").val(emeraldNumber);
 	$("#sapphireButton").val(sapphireNumber);
@@ -85,13 +88,33 @@ $(document).on("click", "button", function()
 			reset();
 		
 		};
+		// This sets the value of the variables inside of the button click function.
+		randomGoalNumberString = "Goal: " + randomGoalNumber;
+		var winString = "Wins: " + wins;
+		var lossString = "Losses: " + losses;
+		var accumulatedScoreString = "Your Total: " + accumulatedScore;
+
+		// This writes the javascript values into the HTML when the button is clicked.
+		$("#randomGoalNumber").html("<p>" + randomGoalNumberString + "</p>");
+		$("#wins").html("<p>" + winString + "</p>");
+		$("#losses").html("<p>" + lossString + "</p>");
+		$("#accumulatedScore").html("<p>" + accumulatedScoreString + "</p>");
 
 
-		
+	
+	});
+
+	// I am repeating outside of the click scope because I want these to appear at the beginning of the load for the game.
+	$("#randomGoalNumber").html("<p>" + randomGoalNumberString + "</p>");
+	$("#wins").html("<p>" + winString + "</p>");
+	$("#losses").html("<p>" + lossString + "</p>");
+	$("#accumulatedScore").html("<p>" + accumulatedScoreString + "</p>");
+
+	
 
 
-	}
-	)
+	
+	
 });
 
 
